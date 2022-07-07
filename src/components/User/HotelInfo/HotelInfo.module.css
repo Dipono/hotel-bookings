@@ -1,0 +1,45 @@
+.main{
+    margin: 50px;
+}
+
+.details{
+    display: flex;
+}
+
+.descptive{
+    width: 40%;
+    height: 50vh;
+}
+
+.descptive h2{
+    text-align: center;
+}
+
+table, td {  
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+ td {
+    padding: 15px;
+  }
+
+.pictures{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.gallery{
+    margin: 15px;
+   
+}
+
+.gallery img{
+    width: 500px;
+    height: 500px;
+}

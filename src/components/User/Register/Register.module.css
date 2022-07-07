@@ -1,0 +1,99 @@
+*{
+	box-sizing: 0;
+	margin: 0;
+	padding: 0;
+}
+
+#register{
+	margin: 25px;
+	text-align: center;
+	background-image: url('../../assets/pexels-jorge-urosa-5546078.jpg');
+  	background-position: center;
+  	background-color: #A7A3CE;
+  	color: white;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+}
+  
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+}
+
+#main{
+	background-color: #000000;
+	opacity: 65%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 652px;
+	height: 850px;
+	text-align: center;
+}
+
+#main h1{
+	 padding-top: 50px;
+}
+
+#forms{
+margin-top: 50px;}
+
+.formGroup{
+	position: relative;
+}
+
+.btn{
+	width: 279px;
+ 	height: 48px;
+ 	background-color: #0F1D6A;
+ 	border-radius: 30px;
+}
+
+.icon{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+}
+
+.formGroup img{
+	margin-top: 25px;
+	margin-left: -60px;
+	margin-bottom: -20px;
+}
+
+#view{
+	margin-top: 25px;
+    margin-left: 25px;
+}
+.controlForm{
+	width: 350px;
+	height: 48px;
+	margin: 25px -80px;
+	background-color: #374187;
+	border-radius: 30px;
+	font-size: 1.5em;
+	font-weight: 600;
+    text-indent: 100px;
+    border: grey 1px solid;
+}
+
+#logButton{
+	font-weight: 500;
+	font-size: 1.3em;
+}
+
+.log{
+ margin-top: 50px;
+ }
+
+ #registerAccount{
+ 	color: green;
+ 	font-weight: 500;
+ 	font-size: 1.2em;
+ 	opacity: 65%;
+ }

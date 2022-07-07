@@ -1,0 +1,11 @@
+[
+    
+    {
+        "id": 1," hotel": "hotel1", "name": "Double Room", "alt": "bedroom", "description": "Located in Johannesburg, 2 miles from Sandton City Mall, Green Gables has accommodations with a shared lounge, free private parking and a garden.",
+        "location": "Sandton City", "price": 250, "duration": "per night",
+        "link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.703645210326!2d28.056532634887706!3d-26.108590999999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950cd4b5c8237b%3A0x6881a081c712edaf!2sMINT%20Hotel%2084%20on%20Katherine!5e0!3m2!1sen!2sza!4v1656496706918!5m2!1sen!2sza",
+        "hotelDetails": {
+            "amenities": "air-conditioning, free wi-fi, hairdryer, in-room safety, laundry, minibar, telephone", "view": "swimming pool", "size": "20m²", "bedType": "queen bed", "categories": "double", "descriptive": "Superior Double Rooms in our hotel are perfectly equipped"
+        }
+    }
+]

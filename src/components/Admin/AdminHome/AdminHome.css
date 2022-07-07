@@ -1,0 +1,19 @@
+.admin-home{
+    margin: 50px;
+    background-color: rgba(240, 248, 255, 0.514);
+
+}
+
+.admin-body{
+    margin: 50px;
+    
+}
+
+.admin-form-group{
+    display: flex;
+    margin: 12px;
+}
+
+.label{
+    width: 50%;
+}

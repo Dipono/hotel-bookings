@@ -1,0 +1,10 @@
+.main{
+    background-image: url('../../assets/pexels-fabian-wiktor-994605.jpg');
+    background-position: bottom;
+    height: 50vh;
+}
+
+.icon{
+    width: 100px;
+    height: 100px;
+}

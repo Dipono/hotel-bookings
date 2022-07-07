@@ -1,0 +1,38 @@
+.admin-head{
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 12vh;
+}
+
+.admin-headnavBar{
+    display: flex;
+}
+
+.admin-navBar{
+    display: flex;
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+
+.admin-isActive{
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 400;
+    color: white;
+}
+
+.admin-nav li{
+    margin: 0 15px;
+    list-style: none;
+   
+}
+
+.admin-navBar label{
+    margin: 0 25px;
+    justify-content: flex-end;
+    font-size: 1.1em;
+    font-weight: 400;
+}

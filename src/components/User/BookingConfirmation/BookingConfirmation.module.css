@@ -1,0 +1,73 @@
+
+.report{
+    margin : 20px;
+}
+
+.report h2{
+    margin-top: 50px;
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+.card{
+    background-color: rgba(240, 248, 255, 0.411);
+    margin-top: 20px;
+}
+
+.card h4{
+    font-size: 1.3em;
+    font-weight: 500;
+}
+.card label{
+    font-size: 1em;
+}
+.bookingDate{
+    display: flex;
+    flex-direction: column;
+}
+
+.accommodation label{
+    padding-bottom: 10px;
+}
+
+.accommodation .formGroup{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.accommodation .controlForm{
+    width: 50%;
+    border-radius: 8px;
+    font-size: 1.3em;
+}
+
+.radioform{
+    display: flex;
+    flex-direction: row;
+}
+
+.pay{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.paylabel{
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.check{
+    display: flex;
+    margin-top: 20px;
+
+}
+
+.checkLabel{
+    font-size: 1em;
+    font-weight: 400;
+    margin-left: 10px;
+    margin-top: 8px;
+}
