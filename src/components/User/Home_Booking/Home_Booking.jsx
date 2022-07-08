@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 
 //import Data from '../Data/Data';
-import { db } from '../config/firebase'
+import { db } from '../../config/firebase'
 import { collection, getDocs } from 'firebase/firestore';
 
 

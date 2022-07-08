@@ -1,0 +1,85 @@
+
+.rooms-container{
+    margin: 10px 100px
+}
+
+.hotel-gallary{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hotel-gallary-container img{
+    height: 350px;
+    width: 400px;
+    margin: 10px;
+}
+
+
+.hotel-info{
+    display: flex;
+}
+
+.hotel-info-details h2{
+    text-align: center;
+}
+
+.hotel-info-details{
+    width: 60%;
+}
+
+.hotel-info-desc{
+    margin: 0 100px;
+}
+
+.hotel-info-spacks{
+    width: 40%;
+}
+
+.hotel-info-spacks-details{
+    margin-right: 100px;
+}
+
+.hotel-info-label{
+    display: flex;
+}
+
+.hotel-info-label p{
+    width: 30%;
+}
+
+
+
+.rooms-button{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.rooms-button button{
+    margin: 0 10px;
+    height: 50px;
+    border-radius: 12px;
+    font-size: 1.1em;
+}
+
+.rooms-button-delete{
+    width: 40%;
+    border: 1px solid rgba(196, 42, 42, 0.89);
+    color: rgba(196, 42, 42, 0.89);
+}
+
+.rooms-button-delete:hover{
+    background-color: rgba(196, 42, 42, 0.89);
+    color: white;
+}
+
+.rooms-button-Edit{
+    width: 40%;
+    border: 1px solid rgba(31, 31, 196, 0.993);
+    color: rgba(31, 31, 196, 0.993);;
+}
+
+.rooms-button-Edit:hover{
+    background-color: rgba(31, 31, 196, 0.993);
+    color: white;
+}

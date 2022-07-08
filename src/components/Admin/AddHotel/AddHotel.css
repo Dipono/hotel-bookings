@@ -1,0 +1,21 @@
+.add_hotel-hotelDetails{
+    width: 40%;
+    margin: auto;
+}
+
+.add_hotel-container{
+    margin: 0 20px;
+}
+
+.add_hotel-hotelDetails .form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.add_hotel-hotelDetails .control-form{
+    font-size: 1.2em;
+}
+
+.add_hotel-hotelDetails textarea{
+    height: 100px;
+}

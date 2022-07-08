@@ -7,9 +7,9 @@ function AdminHeader() {
         <div className="admin-head">
             <div className="admin-headnavBar">
                 <ul className="admin-nav">
-                    <li><NavLink to={'#'} className="admin-headisActive" >Home</NavLink></li>
-                    <li><NavLink to={'#'} className="admin-headisActive">Bookings</NavLink></li>
-                    <li><NavLink to={'#'} className="admin-headisActive">Rooms</NavLink></li>
+                    <li><NavLink to={'/admin_home'} className="admin-headisActive" >Home</NavLink></li>
+                    <li><NavLink to={'/bookings'} className="admin-headisActive">Bookings</NavLink></li>
+                    <li><NavLink to={'/hotel'} className="admin-headisActive">Hotel</NavLink></li>
                 </ul>
                 <label className="admin-username">Username</label>
                 <label className="admin-logout">Logout</label>

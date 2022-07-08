@@ -10,6 +10,11 @@ import Search from './components/User/Search/Search';
 import BookingConfirmation from './components/User/BookingConfirmation/BookingConfirmation';
 
 import AdminHome from './components/Admin/AdminHome/AdminHome';
+import Bookings from './components/Admin/Bookings/Bookings';
+import Hotel from './components/Admin/Hotel/Hotel';
+import Rooms from './components/Admin/Rooms/Rooms';
+import AddHotel from './components/Admin/AddHotel/AddHotel';
+
 
 
 function App() {
@@ -26,6 +31,12 @@ function App() {
           <Route exact path='/search' element={<Search />} />
           <Route exact path='/confirmation' element={<BookingConfirmation />} />
           <Route exact path='/admin_home' element={<AdminHome />} />
+          <Route exact path='/bookings' element={<Bookings />} />
+          <Route exact path='/hotel' element={<Hotel />} />
+          <Route exact path='/rooms' element={<Rooms />} />
+          <Route exact path='/add_hotel' element={<AddHotel />} />
+
+
 
         </Routes>
       </Router>
