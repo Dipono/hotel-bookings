@@ -57,7 +57,6 @@ function Home_Booking() {
         setButtonPopup(true)
     }
     function checkInNow() {
-        console.log(CheckIn)
         if(CheckIn.checkIn !== '' && CheckIn.checkOut !== ''){
             var start = new Date(CheckIn.checkIn)
             var end = new Date(CheckIn.checkOut)
@@ -69,7 +68,6 @@ function Home_Booking() {
     }
 
     function gallery(data) {
-        console.log(data)
         navigate('/hotel_info', { state: { data: data } })
     }
 

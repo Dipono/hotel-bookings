@@ -25,7 +25,7 @@
 }
 
 .hotel-info-details{
-    width: 60%;
+    width: 50%;
 }
 
 .hotel-info-desc{
@@ -33,7 +33,14 @@
 }
 
 .hotel-info-spacks{
-    width: 40%;
+    width: 50%;
+}
+.hotel-info-label p{
+    width: 30%;
+}
+
+.hotel-info-label-data{
+    width: 80%;
 }
 
 .hotel-info-spacks-details{
@@ -44,9 +51,6 @@
     display: flex;
 }
 
-.hotel-info-label p{
-    width: 30%;
-}
 
 
 

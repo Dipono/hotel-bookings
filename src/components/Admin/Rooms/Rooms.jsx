@@ -1,5 +1,5 @@
 import './Rooms.css';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import AdminHeader from '../AdminHeader/AdminHeader';
 import { useEffect, useState } from 'react';
 
@@ -10,9 +10,9 @@ function Rooms() {
     const [HotelData] = useState(data)
     const [Gallary, setGallery] = useState([])
     useEffect(() => {
-        //console.log(Rooms)
-        setGallery(HotelData.gallary)
         console.log(HotelData)
+        setGallery(HotelData.gallary)
+        console.log(Gallary)
     })
 
     return (
@@ -23,7 +23,7 @@ function Rooms() {
                 <div className="hotel-gallary">
                     {Gallary.map((images, xid) => (
                         <div className="hotel-gallary-container" key={xid}>
-                            <img src={images.image} alt="" />
+                            <img src={images} alt={HotelData.name} />
                         </div>
                     ))}
 
@@ -34,7 +34,7 @@ function Rooms() {
                         <h2>Details</h2>
                         <div className="hotel-info-desc">
                             <p>{HotelData.description}</p><br />
-                            <p>full description</p>
+                            <p>{HotelData.descriptive}</p>
 
                         </div>
                     </div>
@@ -43,31 +43,27 @@ function Rooms() {
                         <div className="hotel-info-spacks-details">
                             <div className="hotel-info-label">
                                 <p>Price  </p>
-                                <p>: R{HotelData.price}</p>
+                                <p className="hotel-info-label-data">: R{HotelData.price}</p>
                             </div>
                             <div className="hotel-info-label">
                                 <p>Size </p>
-                                <p>: 125heiht</p>
+                                <p className="hotel-info-label-data">: {HotelData.size}</p>
                             </div>
                             <div className="hotel-info-label">
                                 <p>amenities </p>
-                                <p>: pool,etc</p>
+                                <p className="hotel-info-label-data">: {HotelData.amenities}</p>
                             </div>
                             <div className="hotel-info-label">
                                 <p>view</p>
-                                <p>: swimming pool</p>
+                                <p className="hotel-info-label-data">: {HotelData.view}</p>
                             </div>
                             <div className="hotel-info-label">
-                                <p>size</p>
-                                <p>: 20m²</p>
-                            </div>
-                            <div className="hotel-info-label">
-                                <p>bedType</p>
-                                <p>: queen bed</p>
+                                <p>bed Type</p>
+                                <p className="hotel-info-label-data">: {HotelData.bedType}</p>
                             </div>
                             <div className="hotel-info-label">
                                 <p>categories</p>
-                                <p>: standard single room</p>
+                                <p className="hotel-info-label-data">: {HotelData.categories}</p>
                             </div>
                         </div>
                     </div>
