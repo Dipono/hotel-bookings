@@ -12,7 +12,6 @@ function Rooms() {
     useEffect(() => {
         console.log(HotelData)
         setGallery(HotelData.gallary)
-        console.log(Gallary)
     })
 
     return (

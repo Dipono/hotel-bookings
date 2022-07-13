@@ -1,0 +1,13 @@
+.popupPayment h2{
+    text-align: center;
+    margin: 20px 0;
+}
+
+.paymet-pop{
+    margin-top: 10px;
+}
+.payment-label{
+    width: 40%;
+    text-align: right;
+    margin-right: 10px;
+}

@@ -14,24 +14,29 @@ function AddHotel() {
         hotel: ``,
         name: '',
         description: '',
-        location: '',
+        city: '',
+        province: '',
+        town: '',
+        code: '',
         price: '',
-        duration: '',
         amenities: '',
         view: '',
         size: '',
-        bedType: '',
-        roomType: '',
-        categories: '',
         descriptive: '',
         capacity: '',
-        gallary: []
+        gallary: [],
+        mapLink: ''
     })
+
+    const [Duration, setDuration] = useState('')
+    const [BedType, setBedType] = useState('')
+    const [RoomType, setRoomType] = useState('')
+    const [Category, setCategory] = useState('')
+
 
     const [hotelImage, setHotelImage] = useState(null)
 
     const [UploadImages] = useState([])
-    //const [imageUpload, setimageUpload] = useState(null)
 
     const [FileImage, setFileImage] = useState(null)
     const handleimage = (e) => {
@@ -39,8 +44,6 @@ function AddHotel() {
     }
 
     const fileImage = '';
-
-    const duration = [{ name: 'Per Night' }, { name: 'Per Day' }]
 
     const [file, setfile] = useState(null);
     const onInputChange = (e) => {
@@ -106,15 +109,18 @@ function AddHotel() {
 
     async function addHotel() {
 
-        if (!AddHotel.name || !AddHotel.description || !AddHotel.location || !AddHotel.price || !AddHotel.duration || !AddHotel.amenities || !AddHotel.view || !AddHotel.size
-            || !AddHotel.bedType || !AddHotel.roomType || !AddHotel.categories || !AddHotel.descriptive || !AddHotel.capacity) {
-                return alert('No field should be left blank')
+        if (!AddHotel.name || !AddHotel.description || !AddHotel.price || !Duration || !AddHotel.amenities || !AddHotel.view || !AddHotel.size
+            || !BedType || !RoomType || !Category || !AddHotel.descriptive || !AddHotel.capacity || !AddHotel.province || !AddHotel.city || !AddHotel.town
+            || !AddHotel.code) {
+            return alert('No field should be left blank')
         }
+        console.log(AddHotel)
 
         await addDoc(userCollectionRef, {
-            hotel: hotelImage, name: AddHotel.name, description: AddHotel.description, location: AddHotel.location, price: AddHotel.price,
-            duration: AddHotel.duration, amenities: AddHotel.amenities, view: AddHotel.view, size: AddHotel.size, bedType: AddHotel.bedType, roomType: AddHotel.roomType,
-            categories: AddHotel.categories, descriptive: AddHotel.descriptive, capacity: AddHotel.capacity, gallary: UploadImages
+            hotel: hotelImage, name: AddHotel.name, description: AddHotel.description, price: AddHotel.price,
+            duration: Duration, amenities: AddHotel.amenities, view: AddHotel.view, size: AddHotel.size, bedType: BedType, roomType: RoomType,
+            categories: Category, descriptive: AddHotel.descriptive, capacity: AddHotel.capacity, gallary: UploadImages, province: AddHotel.province,
+            city: AddHotel.city, town: AddHotel.town, code: AddHotel.code
         })
         alert('submitted successfully')
         return navigate('/hotel')
@@ -145,7 +151,15 @@ function AddHotel() {
                     </div>
                     <div className="form-group">
                         <label>Category <span className='require'>*</span></label>
-                        <input type="text" className="control-form" placeholder="eg Hotel, Apartment, Motel, etc" name="categories" value={AddHotel.categories} onChange={handleChanges} />
+                        <select className="select-form" onChange={(e) => { setCategory(e.target.value); }} >
+                            <option value='' className="control-form">---Select---</option>
+                            <option value='Hotel' className="control-form">Hotel</option>
+                            <option value='Apartment' className="control-form">Apartment</option>
+                            <option value='Motel' className="control-form">Motel</option>
+                            <option value='Resorts' className="control-form">Resorts</option>
+                            <option value='Suite Hotels' className="control-form">Suite Hotels</option>
+                        </select>
+                        {/* <input type="text" className="control-form" placeholder="eg Hotel, Apartment, Motel, etc" name="categories" value={AddHotel.categories} onChange={handleChanges} /> */}
                     </div>
                     <div className="form-group">
                         <label>Price <span className='require'>*</span></label>
@@ -153,8 +167,14 @@ function AddHotel() {
                     </div>
 
                     <div className="form-group">
-                        <label>location <span className='require'>*</span></label>
-                        <input type="text" className="control-form" placeholder="Province, City or/and Town" name="location" value={AddHotel.location} onChange={handleChanges} />
+                        <fieldset><label>Address <span className='require'>*</span></label>
+                            <span className="add-address">
+                                <input type="text" className="control-form" placeholder="Province" name="province" value={AddHotel.province} onChange={handleChanges} /> &emsp;
+                                <input type="text" className="control-form" placeholder="City" name="city" value={AddHotel.city} onChange={handleChanges} />&emsp;
+                                <input type="text" className="control-form" placeholder="Town" name="town" value={AddHotel.town} onChange={handleChanges} />&emsp;
+                                <input type="number" className="control-form" placeholder="Code" name="code" value={AddHotel.code} onChange={handleChanges} />
+                            </span>
+                        </fieldset>
                     </div>
 
                     <div className="form-group">
@@ -175,7 +195,14 @@ function AddHotel() {
                     </div>
                     <div className="form-group">
                         <label>Duration <span className='require'>*</span></label>
-                        <input type="text" className="control-form" name="duration" value={AddHotel.duration} onChange={handleChanges} />
+                        <select className="select-form" onChange={(e) => { setDuration(e.target.value); }} >
+                            <option value='' className="control-form" selected>---Select---</option>
+                            <option value='Per Night' className="control-form">Per Night</option>
+                            <option value='Daily' className="control-form">Daily</option>
+                            <option value='Monthly' className="control-form">Monthly</option>
+                            <option value='Annually' className="control-form">Annually</option>
+                        </select>
+                        {/* <input type="text" className="control-form" name="duration" value={AddHotel.duration}  /> */}
                     </div>
                     <div className="form-group">
                         <label>Size <span className='require'>*</span></label>
@@ -183,11 +210,35 @@ function AddHotel() {
                     </div>
                     <div className="form-group">
                         <label>Bed Type <span className='require'>*</span></label>
-                        <input type="text" className="control-form" placeholder="eg Queen bed" name="bedType" value={AddHotel.bedType} onChange={handleChanges} />
+                        <select className="select-form" onChange={(e) => { setBedType(e.target.value); }} >
+                            <option value='' className="control-form" selected>---Select---</option>
+                            <option value='Single Bed' className="control-form">Single Bed</option>
+                            <option value='Double Bed' className="control-form">Double Bed</option>
+                            <option value='Triple Bed' className="control-form">Triple Bed</option>
+                            <option value='Quad Bed' className="control-form">Quad Bed</option>
+                            <option value='Queen Bed' className="control-form">Queen Bed</option>
+                            <option value='Twin Bed' className="control-form">Twin Bed</option>
+                            <option value='Hollywood Twin Bed' className="control-form">Hollywood Twin Bed</option>
+                            <option value='Double-double Bed' className="control-form">Double-double Bed</option>
+                        </select>
+                        {/* <input type="text" className="control-form" placeholder="eg Queen bed" name="bedType" value={AddHotel.bedType} onChange={handleChanges} /> */}
                     </div>
                     <div className="form-group">
                         <label>Room Type <span className='require'>*</span></label>
-                        <input type="text" className="control-form" placeholder="standard single room, suit" name="roomType" value={AddHotel.roomType} onChange={handleChanges} />
+                        <select className="select-form" onChange={(e) => { setRoomType(e.target.value); }}>
+                            <option value='' className="control-form" selected>---Select---</option>
+                            <option value='Standard Single Room'  className="control-form">Standard Single Room</option>
+                            <option value='Standard Double Room' className="control-form">Standard Double Room</option>
+                            <option value='Hollywood Twin Room' className="control-form">Hollywood Twin Room</option>
+                            <option value='Studio Room' className="control-form">Studio Room</option>
+                            <option value='Suite / Executive Suite' className="control-form">Suite / Executive Suite</option>
+                            <option value='Mini Suite or Junior Suite' className="control-form">Mini Suite or Junior Suite</option>
+                            <option value='President Suite | Presidential Suite' className="control-form">President Suite | Presidential Suite</option>
+                            <option value='Twin Bed' className="control-form">Twin Bed</option>
+                            <option value='Murphy Room' className="control-form">Murphy Room</option>
+                            <option value='Accessible Room / Disabled Room' className="control-form">Accessible Room / Disabled Room</option>
+                        </select>
+                        {/* <input type="text" className="control-form" placeholder="standard single room, suit" name="roomType" value={AddHotel.roomType} onChange={handleChanges} /> */}
                     </div>
                     <div className="form-group">
                         <label>Capacity <span className='require'>*</span></label>
@@ -217,7 +268,7 @@ function AddHotel() {
                 <div className='add-btn-submit'>
                     <button className="control-form add-submit" onClick={addHotel}>Submit</button>
                 </div>
-                
+
 
             </div>
         </div>
