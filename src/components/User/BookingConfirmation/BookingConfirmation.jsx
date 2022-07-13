@@ -1,12 +1,14 @@
 import confirm from './BookingConfirmation.module.css';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { db } from '../../config/firebase';
 import { addDoc, collection } from 'firebase/firestore';
 import PopUpBook from '../PopUpBook/PopUpBook';
 import './payment.css'
+import { async } from '@firebase/util';
 
 function BookingConfirmation() {
+    const navigate = useNavigate()
     const { state } = useLocation();
     const { data, hotelData } = state;
     const userCollectionRef = collection(db, 'user_hotel')
@@ -17,6 +19,11 @@ function BookingConfirmation() {
     const [guestName, setguestName] = useState('');
     const [paymentMethod, setPaymentMethod] = useState('');
     const [check, setCheck] = useState(false);
+    const [expDate, setexpDate] = useState('');
+    const [cardNumber, setcardNumber] = useState('');
+    const [cardName, setcardName] = useState('');
+    const [cvv, setcvv] = useState('');
+
 
     const [ButtonPopup, setButtonPopup] = useState(false);
 
@@ -45,35 +52,49 @@ function BookingConfirmation() {
                 hotetId: HotelData.id, paymentMethod: paymentMethod, checkIn: BookingInformation.checkIn, checkOut: BookingInformation.checkOut,
                 adult: BookingInformation.adult, child: BookingInformation.child, totalPrice: BookingInformation.totalPrice, userId: userId
             })
-                .then(function (response) {
-                    console.log(response)
-
+                .then(() => {
+                    alert('Sussessfully Booked!')
+                    navigate('/')
                 })
         }
+    }
+
+    async function sendPayment() {
+        const userId = 'H31RdXp2hmHio2k0YQxj'
+
+        await addDoc(userCollectionRef, {
+            hotetId: HotelData.id, paymentMethod: paymentMethod, checkIn: BookingInformation.checkIn, checkOut: BookingInformation.checkOut,
+            adult: BookingInformation.adult, child: BookingInformation.child, totalPrice: BookingInformation.totalPrice, userId: userId, cardExpDate: expDate,
+            cardNumber: cardNumber, cardName: cardName, cvv: cvv
+        })
+            .then(() => {
+                alert('Sussessfully Booked!')
+                navigate('/');
+            })
     }
 
     let popupPayment = (
         <div className='popupPayment'>
             <h2>Payment</h2>
-            
+
             <div className="form-group paymet-pop">
                 <label className='payment-label'>Name Holder</label>
-                <input type="text" className="control-form payment-control-form" placeholder="DJ Makhenzi" />
+                <input type="text" className="control-form payment-control-form" placeholder="DJ Makhenzi" onChange={(e) => setexpDate(e.target.value)} />
             </div>
             <div className="form-group paymet-pop">
                 <label className='payment-label'>Card Number</label>
-                <input type="text" className="control-form" placeholder="5555-5555-5555-4444" maxlength='15' />
+                <input type="number" className="control-form" placeholder="5555-5555-5555-4444" maxlength='15' onChange={(e) => setcardNumber(e.target.value)} />
             </div>
             <div className="form-group paymet-pop">
                 <label className='payment-label'>Exp Date</label>
-                <input type="text" className="control-form" placeholder="MM/YYYY" maxlength='7'/>
+                <input type="text" className="control-form" placeholder="MM/YYYY" maxlength='7' onChange={(e) => setcardName(e.target.value)} />
             </div>
             <div className="form-group paymet-pop">
                 <label className='payment-label'>CVV</label>
-                <input type="text" className="control-form" placeholder="332" maxlength="3" />
+                <input type="number" className="control-form" placeholder="332" maxlength="3" onChange={(e) => setcvv(e.target.value)} />
             </div>
 
-            <button className="btn btn-primary">Cormfirm</button>
+            <button className="btn btn-primary payment-btn" onClick={sendPayment}>Cormfirm</button>
         </div>
     )
 
@@ -148,6 +169,7 @@ function BookingConfirmation() {
                 </div>
             </div>
             <button type="button" className={confirm.submitAvailability} onClick={confirmCheckIn}>Check Now</button>
+
             <PopUpBook trigger={ButtonPopup} setTrigger={setButtonPopup}>
                 {popupPayment}
             </PopUpBook>
