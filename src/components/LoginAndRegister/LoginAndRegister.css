@@ -1,0 +1,140 @@
+.login_register {
+    background-color: rgba(8, 8, 8, 0.589);
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+}
+
+.loginAndRegister {
+    width: 380px;
+    height: 75vh;
+    position: relative;
+    margin: 6% auto;
+    background-color: #fff;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.radio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 100px;
+}
+
+.radio .form-group {
+    display: flex;
+}
+
+.radio input {
+    margin-left: 10px;
+    width: 15px;
+    height: 15px;
+    margin-top: 5px;
+}
+
+.radio label {
+    margin-left: 25px;
+    margin-top: -5px;
+}
+
+/*
+*/
+.loginAndRegister-heading {
+    margin:  80px 60px;
+    /* position: relative; */
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+
+.toggle-btn {
+    padding: 10px 30px;
+    background: transparent;
+    border: 0;
+    outline: none;
+}
+
+#btn {
+    top: 0;
+    left: 0;
+    display: flex;
+    position: absolute;
+    width: 110px;
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    border-radius: 30px;
+    transition: .5s;
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1;
+    /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: white;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: white;
+}
+
+.input-group {
+    width: 280px;
+    transition: .5s;
+    margin-top: 100px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.reg-group {
+    margin-top: -150px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    /* position: absolute; */
+}
+
+.form-group img {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: -20px;
+}
+
+#view {
+    margin-top: 20px;
+    margin-left: -50px;
+}
+
+.control-form {
+    width: 318px;
+    height: 48px;
+    margin-top: 10px;
+    background-color: #374187;
+    border-radius: 30px;
+    font-size: 1.1em;
+    text-indent: 50px;
+    border: grey 1px solid;
+}
+
+.form-group-btn {
+    margin-top: 50px;
+}
+
+.login-btn {
+    width: 100%;
+}
+
+#login {
+    left: 50px;
+}
+
+#register {}

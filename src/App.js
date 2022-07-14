@@ -15,32 +15,31 @@ import Bookings from './components/Admin/Bookings/Bookings';
 import Hotel from './components/Admin/Hotel/Hotel';
 import Rooms from './components/Admin/Rooms/Rooms';
 import AddHotel from './components/Admin/AddHotel/AddHotel';
+import LoginAndRegister from './components/LoginAndRegister/LoginAndRegister';
 
 
 
 function App() {
   return (
-      <Router>
-        <Routes>
-          {/* <Route exact path='/' element={<Login />} />
+    <Router>
+      <Routes>
+        {/* <Route exact path='/' element={<Login />} />
           <Route exact path='/register' element={<Register />} /> */}
-          <Route exact path='/' element={<Home />} />
-          <Route exact path='/home_book' element={<HomeBooking />} />
-          <Route exact path='/hotel_info' element={<HotelInfo />} />
-          <Route exact path='/google_map' element={<GoogleMap />} />
-          <Route exact path='/about' element={<About />} />
-          <Route exact path='/search' element={<Search />} />
-          <Route exact path='/confirmation' element={<BookingConfirmation />} />
-          <Route exact path='/admin_home' element={<AdminHome />} />
-          <Route exact path='/bookings' element={<Bookings />} />
-          <Route exact path='/hotel' element={<Hotel />} />
-          <Route exact path='/rooms' element={<Rooms />} />
-          <Route exact path='/add_hotel' element={<AddHotel />} />
-
-
-
-        </Routes>
-      </Router>
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/home_book' element={<HomeBooking />} />
+        <Route exact path='/hotel_info' element={<HotelInfo />} />
+        <Route exact path='/google_map' element={<GoogleMap />} />
+        <Route exact path='/about' element={<About />} />
+        <Route exact path='/search' element={<Search />} />
+        <Route exact path='/confirmation' element={<BookingConfirmation />} />
+        <Route exact path='/admin_home' element={<AdminHome />} />
+        <Route exact path='/bookings' element={<Bookings />} />
+        <Route exact path='/hotel' element={<Hotel />} />
+        <Route exact path='/rooms' element={<Rooms />} />
+        <Route exact path='/add_hotel' element={<AddHotel />} />
+        <Route exact path='/login_Rrgister' element={<LoginAndRegister />} />
+      </Routes>
+    </Router>
   );
 
 }
