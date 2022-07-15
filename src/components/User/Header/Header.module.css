@@ -34,3 +34,10 @@ ul{
     font-size: 1.1em;
     font-weight: 400;
 }
+
+.searchResults{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    color: black;
+}

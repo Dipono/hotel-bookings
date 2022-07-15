@@ -8,6 +8,7 @@ import './LoginAndRegister.css'
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from '../config/firebase';
 import { addDoc, collection } from 'firebase/firestore';
+import { useEffect } from 'react';
 
 
 function LoginAndRegister() {
@@ -28,23 +29,32 @@ function LoginAndRegister() {
     const refLog = useRef('login');
     const refReg = useRef('register');
     const refBtn = useRef('btn');
+    const radBtn = useRef('radio');
 
+    useEffect(() => {
+        refLog.current.style.left = "25px"
+        refReg.current.style.left = "450px"
+        refBtn.current.style.left = "0"
+
+    },[])
 
     function register() {
         refLog.current.style.left = "-400px"
         refReg.current.style.left = "30px"
         refBtn.current.style.left = "50px"
+        radBtn.current.style.left = "-400px"
     }
 
     function login() {
         refLog.current.style.left = "25px"
         refReg.current.style.left = "450px"
         refBtn.current.style.left = "0"
+        radBtn.current.style.left = "25px"
 
     }
 
     function Login() {
-         if(!Email || !Password) return alert('Please enter all the fields')
+        if (!Email || !Password) return alert('Please enter all the fields')
 
         signInWithEmailAndPassword(auth, Email, Password)
             .then((userCredential) => {
@@ -89,7 +99,7 @@ function LoginAndRegister() {
 
     let loginAndRegister = (
         <div className="loginAndRegister">
-            <div className="radio">
+            <div className="radio" id="radio" ref={radBtn}>
                 <div className='form-group'>
                     <input type="radio" name="role" value="tenant" />
                     <label>Tenant</label>

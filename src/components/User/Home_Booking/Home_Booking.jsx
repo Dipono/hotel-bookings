@@ -20,7 +20,6 @@ function Home_Booking() {
 
     const [Hotel, setHotel] = useState([])
     const usersCollectionRef = collection(db, "hotel")
-
     useEffect(() => {
         const getHotels = async () => {
             const data = await getDocs(usersCollectionRef);

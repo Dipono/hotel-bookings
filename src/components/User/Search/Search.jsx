@@ -34,7 +34,6 @@ function Search() {
                     {data.name}
                 </div>
             ))}
-
         </div>
     )
 }

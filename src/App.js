@@ -15,7 +15,7 @@ import Bookings from './components/Admin/Bookings/Bookings';
 import Hotel from './components/Admin/Hotel/Hotel';
 import Rooms from './components/Admin/Rooms/Rooms';
 import AddHotel from './components/Admin/AddHotel/AddHotel';
-import LoginAndRegister from './components/LoginAndRegister/LoginAndRegister';
+ import LoginAndRegister from './components/LoginAndRegister/LoginAndRegister';
 
 
 
