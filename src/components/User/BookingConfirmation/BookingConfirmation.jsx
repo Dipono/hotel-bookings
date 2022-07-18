@@ -23,7 +23,7 @@ function BookingConfirmation() {
     const [cardNumber, setcardNumber] = useState('');
     const [cardName, setcardName] = useState('');
     const [cvv, setcvv] = useState('');
-
+const [userId, setuserId] = useState('');
 
     const [ButtonPopup, setButtonPopup] = useState(false);
 
@@ -32,15 +32,11 @@ function BookingConfirmation() {
 
         setBookingInformation(data)
         setHotelData(hotelData)
-        console.log(BookingInformation)
-        //console.log(HotelData)
-
+        setuserId(localStorage.getItem('userId'))
     })
 
     async function confirmCheckIn() {
 
-        const userId = 'H31RdXp2hmHio2k0YQxj'
-        console.log(guestName, paymentMethod, check)
         if (!guestName) return alert('Please enter guest name')
         if (!paymentMethod) return alert('Please select payment method')
         if (!check) return alert('Please accept our term and conditions')
@@ -60,8 +56,6 @@ function BookingConfirmation() {
     }
 
     async function sendPayment() {
-        const userId = 'H31RdXp2hmHio2k0YQxj'
-
         await addDoc(userCollectionRef, {
             hotetId: HotelData.id, paymentMethod: paymentMethod, checkIn: BookingInformation.checkIn, checkOut: BookingInformation.checkOut,
             adult: BookingInformation.adult, child: BookingInformation.child, totalPrice: BookingInformation.totalPrice, userId: userId, cardExpDate: expDate,

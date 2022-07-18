@@ -9,9 +9,9 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "fire
 import { auth, db } from '../config/firebase';
 import { addDoc, collection } from 'firebase/firestore';
 import { useEffect } from 'react';
+import {AiFillCloseCircle} from 'react-icons/ai'
 
-
-function LoginAndRegister() {
+function LoginAndRegister(props) {
     const navigate = useNavigate()
 
     const userCollectionRef = collection(db, 'client');
@@ -24,32 +24,25 @@ function LoginAndRegister() {
     const [Name, setName] = useState('')
     const [PhoneNo, setPhoneNo] = useState('')
 
-
-
     const refLog = useRef('login');
     const refReg = useRef('register');
     const refBtn = useRef('btn');
-    const radBtn = useRef('radio');
 
     useEffect(() => {
-        refLog.current.style.left = "25px"
-        refReg.current.style.left = "450px"
-        refBtn.current.style.left = "0"
-
     },[])
 
     function register() {
         refLog.current.style.left = "-400px"
         refReg.current.style.left = "30px"
+        refReg.current.style.hidden = false
         refBtn.current.style.left = "50px"
-        radBtn.current.style.left = "-400px"
+
     }
 
     function login() {
         refLog.current.style.left = "25px"
         refReg.current.style.left = "450px"
         refBtn.current.style.left = "0"
-        radBtn.current.style.left = "25px"
 
     }
 
@@ -60,6 +53,7 @@ function LoginAndRegister() {
             .then((userCredential) => {
                 localStorage.setItem('userId', userCredential.user.uid)
                 localStorage.setItem('userEmail', userCredential.user.email)
+                props.setTrigger(false)
                 alert('Successfully')
             })
             .catch((error) => {
@@ -99,9 +93,9 @@ function LoginAndRegister() {
 
     let loginAndRegister = (
         <div className="loginAndRegister">
-            <div className="radio" id="radio" ref={radBtn}>
+            {/* <div className="radio" id="radio" ref={radBtn}>
                 <div className='form-group'>
-                    <input type="radio" name="role" value="tenant" />
+                    <input type="radio" name="role" value="tenant" /> Tenant
                     <label>Tenant</label>
                 </div>
                 <div className='form-group'>
@@ -109,7 +103,7 @@ function LoginAndRegister() {
                     <label>Admin</label>
                 </div>
 
-            </div>
+            </div> */}
             <div className="loginAndRegister-heading" id='btn' ref={refBtn}>
                 <button className="toggle-btn btn-login" onClick={login}>Login</button>
                 <button className="toggle-btn btn-register" onClick={register}>Register</button>
@@ -174,11 +168,12 @@ function LoginAndRegister() {
 
         </div>
     )
-    return (
+    return  (props.trigger) ? (
         <div className="login_register">
+            <button onClick={() => props.setTrigger(false)}>< AiFillCloseCircle /></button>
             {loginAndRegister}
         </div>
-    )
+    ) : "";
 }
 
 export default LoginAndRegister;

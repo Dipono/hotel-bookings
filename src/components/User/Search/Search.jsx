@@ -1,5 +1,5 @@
 
-import Data from '../Data/Data';
+import Data from '../../Data/Data';
 import { useState } from 'react';
 import search from './Search.module.css';
 

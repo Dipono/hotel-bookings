@@ -35,9 +35,33 @@ ul{
     font-weight: 400;
 }
 
+.activeResults{
+    height: 100px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.activeResults:empty{
+    height: 0;
+}
+
 .searchResults{
     display: flex;
     flex-direction: column;
+    justify-content: left;
     background-color: #fff;
     color: black;
+    align-items: center;
+}
+
+.searchResults p:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.logout:hover{
+    cursor: pointer;
 }

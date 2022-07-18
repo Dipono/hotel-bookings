@@ -3,11 +3,13 @@
     height: 100vh;
     width: 100%;
     margin: auto;
+    position: relative;
 }
+
 
 .loginAndRegister {
     width: 380px;
-    height: 75vh;
+    height: 80vh;
     position: relative;
     margin: 6% auto;
     background-color: #fff;
@@ -124,7 +126,7 @@
     margin-left: -50px;
 }
 
-.control-form {
+.loginAndRegister-body .control-form {
     width: 318px;
     height: 48px;
     margin-top: 10px;
@@ -133,7 +135,7 @@
     font-size: 1.1em;
     text-indent: 50px;
     border: grey 1px solid;
-}
+} 
 
 .form-group-btn {
     margin-top: 50px;

@@ -1,0 +1,60 @@
+
+.history-header{
+    width: 80%;
+    margin: auto;
+}
+.btn-view-history{
+    background-color: rgba(127, 255, 212, 0.445);
+    width: 100%;
+    background-attachment: fixed;
+    margin-top: 100px;
+}
+
+
+.history-body{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    margin-top: 100px;
+}
+
+.history-body h2{
+    text-align: center;
+}
+
+.confirm-bookings{
+    width: 45%;
+    background-color: rgba(209, 207, 204, 0.514);
+    margin-left: 30px;
+
+}
+
+.panding-bookings{
+    width: 45%;
+    background-color: rgba(209, 207, 204, 0.514);
+    margin-left: 20px;
+}
+
+.booking-info{
+    margin-right: 5px;
+    margin-left: 5px;
+    border: solid 2px grey;
+}
+
+.booking-date, .booking-data, .book-statuses{
+    margin-left: 15px;
+
+}
+
+.confirm-status{
+    background-color: rgba(36, 36, 228, 0.486);
+}
+
+.panding-status{
+    background-color: rgba(231, 50, 18, 0.486);
+
+}
+/* .panding-bookings{
+    width: 500px;
+    background-color: rgba(250, 235, 215, 0.342);
+} */

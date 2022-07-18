@@ -12,15 +12,13 @@ function HotelInfo() {
 
         setHotelData(data)
         setGallery(data.gallary)
-        console.log(HotelData)
-
-        console.log(Gallery)
     })
 
     return (
         <div className={hotelInfo.main}>
-            <div className={hotelInfo.details}>
+                <h2>{HotelData.name}</h2>
 
+            <div className={hotelInfo.details}>
                 <div className={hotelInfo.descptive}>
                     <h2>Details</h2>
                     <table className={hotelInfo.table} striped="true" bordered="true" hover="true" variant="dark">
@@ -59,9 +57,6 @@ function HotelInfo() {
                         </div>
                     ))}
                 </div>
-
-
-
             </div>
 
 

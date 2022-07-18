@@ -1,8 +1,45 @@
 
 import './AdminHome.css';
 import AdminHader from '../AdminHeader/AdminHeader';
-
+// import { db } from '../../config/firebase'
+// import { collection, getDocs } from 'firebase/firestore';
+import { useState,useEffect } from 'react';
+import bookings from '../../Data/Bookings'
 function AdminHome() {
+
+    const [Bookings, setBookings]=useState([])
+    const [RoomBooked, setRoomBooked]=useState(0)
+    const [RoomAvailable, setRoomAvailable]=useState(0)
+    const [Apartment, setApartment]=useState(0)
+    const [DoubleRoom, setDoubleRoom]=useState(0)
+    const [Adults, setAdults]=useState(0)
+    const [Children, setChildren]=useState(0)
+
+    
+
+    // const bookingsRef = collection(db,'user_hotel')
+    useEffect(()=>{
+        setBookings(bookings)
+        
+        const getBookings = async () => {
+            // const data = await getDocs(bookingsRef);
+            // setBookings(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            
+            let booked = 0;
+            var today = new Date();
+            var date = today.getFullYear()+'-'+ ('0' + (today.getMonth()+1)).slice(-2)  +'-'+today.getDate();
+            for(var booking = 0; booking< Bookings.length; booking++){
+                
+                if(Bookings[booking].checkIn >= date){
+                    booked++
+                }
+            } 
+
+            setRoomBooked(booked)
+            console.log(RoomBooked)
+        }
+        getBookings();
+    })
 
     return (
         <div className="admin-home">
@@ -11,7 +48,7 @@ function AdminHome() {
                 <div className="admin-rooms">
                     <div className="admin-form-group">
                         <label className="label">Rooms Booked</label>
-                        <label className="value">0</label>
+                        <label className="value">{RoomBooked}</label>
                     </div>
                     <div className="admin-form-group">
                         <label className="label">Available Rooms</label>

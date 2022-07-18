@@ -1,31 +1,31 @@
 
-import hotel1 from '../../../assets/pexels-konstantinos-eleftheriadis-2034335.jpg';
-import hotel2 from '../../../assets/pexels-amar-saleem-70441.jpg';
-import hotel3 from '../../../assets/325004232.jpg';
+import hotel1 from '../../assets/pexels-konstantinos-eleftheriadis-2034335.jpg';
+import hotel2 from '../../assets/pexels-amar-saleem-70441.jpg';
+import hotel3 from '../../assets/325004232.jpg';
 
-import bedroom1 from '../../../assets/pexels-max-vakhtbovych-6782428.jpg';
-import bathroom2 from '../../../assets/pexels-max-vakhtbovych-7031908.jpg';
-import bathroom3 from '../../../assets/pexels-jean-van-der-meulen-1457847.jpg'
+import bedroom1 from '../../assets/pexels-max-vakhtbovych-6782428.jpg';
+import bathroom2 from '../../assets/pexels-max-vakhtbovych-7031908.jpg';
+import bathroom3 from '../../assets/pexels-jean-van-der-meulen-1457847.jpg'
 
-import bedroom4 from '../../../assets/pexels-julie-aagaard-2467285.jpg';
-import bedroom5 from '../../../assets/pexels-pixabay-210265.jpg';
-import bedroom6 from '../../../assets/wp6957302-hotel-room-wallpapers.jpg';
+import bedroom4 from '../../assets/pexels-julie-aagaard-2467285.jpg';
+import bedroom5 from '../../assets/pexels-pixabay-210265.jpg';
+import bedroom6 from '../../assets/wp6957302-hotel-room-wallpapers.jpg';
 
-import hotel3_1 from '../../../assets/325006667.jpg';
-import hotel3_2 from '../../../assets/325004270.jpg';
-import hotel3_3 from '../../../assets/325004170.jpg';
-import hotel3_4 from '../../../assets/325003381.jpg';
-import hotel3_5 from '../../../assets/325003382.jpg';
-import hotel3_6 from '../../../assets/325002008.jpg';
-import hotel3_7 from '../../../assets/325001863.jpg';
-import hotel3_8 from '../../../assets/325001880.jpg';
-import hotel3_9 from '../../../assets/325001786.jpg';
-import hotel3_10 from '../../../assets/325001787.jpg';
-import hotel3_11 from '../../../assets/325001766.jpg';
-import hotel3_12 from '../../../assets/370208651.jpg';
-import hotel3_13 from '../../../assets/325004210.jpg';
+import hotel3_1 from '../../assets/325006667.jpg';
+import hotel3_2 from '../../assets/325004270.jpg';
+import hotel3_3 from '../../assets/325004170.jpg';
+import hotel3_4 from '../../assets/325003381.jpg';
+import hotel3_5 from '../../assets/325003382.jpg';
+import hotel3_6 from '../../assets/325002008.jpg';
+import hotel3_7 from '../../assets/325001863.jpg';
+import hotel3_8 from '../../assets/325001880.jpg';
+import hotel3_9 from '../../assets/325001786.jpg';
+import hotel3_10 from '../../assets/325001787.jpg';
+import hotel3_11 from '../../assets/325001766.jpg';
+import hotel3_12 from '../../assets/370208651.jpg';
+import hotel3_13 from '../../assets/325004210.jpg';
 
-import kitchen1 from '../../../assets/pexels-max-vakhtbovych-8143944.jpg';
+import kitchen1 from '../../assets/pexels-max-vakhtbovych-8143944.jpg';
 
 
 const Data = [
@@ -79,4 +79,5 @@ const Data = [
     },
 ]
 
-export default Data;
+
+export default Data ;

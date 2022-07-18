@@ -1,46 +1,76 @@
 
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { db } from '../../config/firebase'
 import { collection, getDocs } from 'firebase/firestore';
-import Data from '../Data/Data';
+import LohinRegPopup from '../../LoginAndRegister/LoginAndRegister'
 
 import header from './Header.module.css';
 function Header() {
+    const navigate = useNavigate()
     const [usersInfo, setusersInfo] = useState([])
     const [oneUser, setoneUser] = useState({})
+
+    const [ButtonPopUp, setButtonPopUp] = useState(false)
+
+
+
+    const [username, setusername] = useState('Username')
     const usersCollectionRef = collection(db, "client")
+
+    const HotelCollectionRef = collection(db, "hotel")
+    let [HotelData, setHotelData] = useState([]);
+    let [LogLabel, setLogLabel] = useState('login')
 
     useEffect(() => {
         let getId = localStorage.getItem('userId')
-        if (getId === null || getId === '') return setoneUser('Username')
-        const getHotels = async () => {
+        if (getId === null || getId === '') return;
+        const getUser = async () => {
             const data = await getDocs(usersCollectionRef);
             setusersInfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
             for (var user = 0; user < usersInfo.length; user++) {
                 if (usersInfo[user].id_ref === getId) {
                     setoneUser(usersInfo[user])
+                    setusername(usersInfo[user].name)
+                    setLogLabel('Logout')
                 }
             }
         }
-        getHotels();
 
+        const getHotels = async () => {
+            const hotelCollection = await getDocs(HotelCollectionRef);
+            setHotelData(hotelCollection.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        }
+        getUser();
+        getHotels();
     }, [usersInfo])
 
 
-    const HotelCollectionRef = collection(db, "hotel")
-    let [HotelData] = useState(Data);
+
 
     let [SearchResults, setSearchResults] = useState([])
 
     function seraching(name) {
         var searchWord = name.target.value
-        console.log(searchWord)
 
         var newFilter = HotelData.filter((value) => {
-            return value.name.includes(searchWord);
+            return value.name.toLowerCase().includes(searchWord.toLowerCase());
+
         })
         setSearchResults(newFilter)
+    }
+
+    function searchResults(data) {
+        navigate('/hotel_info', { state: { data: data } })
+    }
+
+    function logout() {
+        if (username === 'Username') {
+            return setButtonPopUp(true)
+        }
+        localStorage.removeItem('userId')
+        localStorage.removeItem('userEmail')
+        window.location.reload()
     }
 
     return (
@@ -50,22 +80,25 @@ function Header() {
                     <li><NavLink to={'/'} className={header.isActive} >Home</NavLink></li>
                     <li><NavLink to={'/about'} className={header.isActive}>About</NavLink></li>
                     <li><NavLink to={'#'} className={header.isActive}>Services</NavLink></li>
-                    <li><NavLink to={'#'} className={header.isActive}>Destination</NavLink></li>
-                    <li><NavLink to={'#'} className={header.isActive}>Blog</NavLink></li>
-                    <li><NavLink to={'#'} className={header.isActive}>Contact</NavLink></li>
-                    <li><input type="text" className={header.searchBtn} onChange={seraching} /></li>
+                    <li><NavLink to={'/booking'} className={header.isActive}>Bookings</NavLink></li>
+                    <li><input type="text" className={header.searchBtn} onChange={seraching} />
+                        <div className={header.activeResults}>
+                            {SearchResults.map((data, xid) => (
+                                <div className={header.searchResults} key={xid}>
+                                    <p onClick={() => searchResults(data)}>{data.name}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </li>
                 </ul>
-                <br/>
-                {SearchResults.map((data, xid) => (
-                    <div className={header.searchResults} key={xid}>
-                        {data.name}
-                    </div>
-                ))}
+                <br />
 
-                <label className={header.username}>{oneUser.name}</label>
-                <label className={header.logout}>Logout</label>
+
+                <label className={header.username}>{username}</label>
+                <label className={header.logout} onClick={logout}>{LogLabel}</label>
 
             </div>
+            <LohinRegPopup trigger={ButtonPopUp} setTrigger={setButtonPopUp}></LohinRegPopup>
 
         </div>
     )

@@ -9,6 +9,8 @@ import GoogleMap from './components/User/GoogleMap/GoogleMap';
 import About from './components/User/About/About';
 import Search from './components/User/Search/Search';
 import BookingConfirmation from './components/User/BookingConfirmation/BookingConfirmation';
+import Booking from './components/User/Booking/Booking';
+import BookingHistory from './components/User/Booking_History/Booking_History';
 
 import AdminHome from './components/Admin/AdminHome/AdminHome';
 import Bookings from './components/Admin/Bookings/Bookings';
@@ -38,6 +40,8 @@ function App() {
         <Route exact path='/rooms' element={<Rooms />} />
         <Route exact path='/add_hotel' element={<AddHotel />} />
         <Route exact path='/login_Rrgister' element={<LoginAndRegister />} />
+        <Route exact path='/booking' element={<Booking />} />
+        <Route exact path='/booking_history' element={<BookingHistory />} />
       </Routes>
     </Router>
   );
