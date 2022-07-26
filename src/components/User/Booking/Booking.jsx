@@ -1,10 +1,42 @@
 
 import './Booking.css'
-import { useNavigate} from 'react-router-dom'
+import { db } from '../../config/firebase'
+import { collection, getDocs } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 function Booking() {
-const navigate = useNavigate()
-    function viewHistory(){
+    const navigate = useNavigate()
+    const [Email, setEmail] = useState('')
+    const [Bookings, setBookings] = useState('')
+    const [UserBookings, setUserBookings] = useState([])
+    const bookCollectionRef = collection(db, "user_hotel")
+
+    useEffect(() => {
+        setEmail(localStorage.getItem('userEmail'))
+        let setBook = []
+        async function getBookings() {
+            if (Email !== '') {
+                return;
+            }
+            const userId = localStorage.getItem('userEmail')
+
+            const data = await getDocs(bookCollectionRef);
+            setBookings(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            console.log(Bookings)
+            for(var books= 0; books < Bookings.length; books++) {
+                if(Bookings[books].userId === userId) {
+                    setBook.push(Bookings[books])
+                }
+            }
+            setUserBookings(setBook)
+            console.log(UserBookings)
+            
+        }
+        getBookings()
+
+    })
+    function viewHistory() {
         navigate('/booking_history')
     }
 

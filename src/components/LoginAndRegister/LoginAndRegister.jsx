@@ -13,8 +13,6 @@ import {AiFillCloseCircle} from 'react-icons/ai'
 function LoginAndRegister(props) {
 
     const userCollectionRef = collection(db, 'client');
-
-
     const [Email, setEmail] = useState('')
     const [Password, setPassword] = useState('')
     const [VerifyPassword, setVerifyPassword] = useState('')
@@ -25,9 +23,6 @@ function LoginAndRegister(props) {
     const refLog = useRef('login');
     const refReg = useRef('register');
     const refBtn = useRef('btn');
-
-    useEffect(() => {
-    },[])
 
     function register() {
         refLog.current.style.left = "-400px"
@@ -91,17 +86,6 @@ function LoginAndRegister(props) {
 
     let loginAndRegister = (
         <div className="loginAndRegister">
-            {/* <div className="radio" id="radio" ref={radBtn}>
-                <div className='form-group'>
-                    <input type="radio" name="role" value="tenant" /> Tenant
-                    <label>Tenant</label>
-                </div>
-                <div className='form-group'>
-                    <input type="radio" name="role" value="admin" />
-                    <label>Admin</label>
-                </div>
-
-            </div> */}
             <div className="loginAndRegister-heading" id='btn' ref={refBtn}>
                 <button className="toggle-btn btn-login" onClick={login}>Login</button>
                 <button className="toggle-btn btn-register" onClick={register}>Register</button>
@@ -168,7 +152,7 @@ function LoginAndRegister(props) {
     )
     return  (props.trigger) ? (
         <div className="login_register">
-            <button onClick={() => props.setTrigger(false)}>< AiFillCloseCircle /></button>
+            <button className='cancel-popup' onClick={() => props.setTrigger(false)}>< AiFillCloseCircle /></button>
             {loginAndRegister}
         </div>
     ) : "";

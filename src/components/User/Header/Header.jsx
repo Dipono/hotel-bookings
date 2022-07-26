@@ -12,21 +12,22 @@ function Header() {
     const [oneUser, setoneUser] = useState({})
 
     const [ButtonPopUp, setButtonPopUp] = useState(false)
-
-
-
-    const [username, setusername] = useState("Username")
+    const [username, setusername] = useState("")
     const usersCollectionRef = collection(db, "client")
 
     const HotelCollectionRef = collection(db, "hotel")
     let [HotelData, setHotelData] = useState([]);
-    let [LogLabel, setLogLabel] = useState('login')
-    let [Role, setRole]= useState('client')
+    let [LogLabel, setLogLabel] = useState('')
+    let [Role, setRole] = useState('client')
 
     useEffect(() => {
-        let getId = localStorage.getItem('userId')
         setusername(localStorage.getItem('userEmail'))
-        if (username === null || username === "") return;
+        let getId = localStorage.getItem('userId')
+        if (username === null || username === "") {
+            setLogLabel('login')
+            return setusername("Username");
+        }
+
         const getUser = async () => {
             const data = await getDocs(usersCollectionRef);
             setusersInfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
@@ -38,11 +39,11 @@ function Header() {
                 }
             }
         }
-        if(Role === 'admin') {
+        if (Role === 'admin') {
             navigate('/admin_home')
         }
-        console.log(username)
-        console.log(usersInfo)
+        // console.log(username)
+        // console.log(usersInfo)
 
         const getHotels = async () => {
             const hotelCollection = await getDocs(HotelCollectionRef);
@@ -72,12 +73,13 @@ function Header() {
     }
 
     function logout() {
+        console.log('header', username)
         if (username === "Username") {
             return setButtonPopUp(true)
         }
         localStorage.removeItem('userId')
         localStorage.removeItem('userEmail')
-        window.location.reload()
+        //window.location.reload()
     }
 
     return (

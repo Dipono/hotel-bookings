@@ -1,20 +1,25 @@
 .login_register {
     background-color: rgba(8, 8, 8, 0.589);
-    height: 100vh;
     width: 100%;
+    height: 100vh;
     margin: auto;
-    position: relative;
+    position: fixed;
+    top:0%;
 }
 
+.cancel-popup{
+    position: absolute;
+    right: 2%;
+}
 
 .loginAndRegister {
     width: 380px;
-    height: 80vh;
+    height: 100vh;
     position: relative;
     margin: 6% auto;
     background-color: #fff;
-    padding: 5px;
     overflow: hidden;
+    margin-top: 1px;
 }
 
 .radio {
@@ -77,6 +82,8 @@
     transition: .5s;
 }
 
+
+
 ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
@@ -105,7 +112,7 @@
 }
 
 .reg-group {
-    margin-top: -150px;
+    margin-top: -250px;
 }
 
 .icon {
