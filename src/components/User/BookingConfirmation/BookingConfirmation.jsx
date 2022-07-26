@@ -46,7 +46,8 @@ const [userId, setuserId] = useState('');
         if (paymentMethod === 'Pay on Arrival') {
             await addDoc(userCollectionRef, {
                 hotetId: HotelData.id, paymentMethod: paymentMethod, checkIn: BookingInformation.checkIn, checkOut: BookingInformation.checkOut,
-                adult: BookingInformation.adult, child: BookingInformation.child, totalPrice: BookingInformation.totalPrice, userId: userId
+                adult: BookingInformation.adult, child: BookingInformation.child, totalPrice: BookingInformation.totalPrice, userId: userId, 
+                guestName:guestName
             })
                 .then(() => {
                     alert('Sussessfully Booked!')
@@ -59,7 +60,7 @@ const [userId, setuserId] = useState('');
         await addDoc(userCollectionRef, {
             hotetId: HotelData.id, paymentMethod: paymentMethod, checkIn: BookingInformation.checkIn, checkOut: BookingInformation.checkOut,
             adult: BookingInformation.adult, child: BookingInformation.child, totalPrice: BookingInformation.totalPrice, userId: userId, cardExpDate: expDate,
-            cardNumber: cardNumber, cardName: cardName, cvv: cvv
+            cardNumber: cardNumber, cardName: cardName, cvv: cvv, guestName:guestName
         })
             .then(() => {
                 alert('Sussessfully Booked!')

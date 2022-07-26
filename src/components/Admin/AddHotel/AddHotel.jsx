@@ -169,10 +169,10 @@ function AddHotel() {
                     <div className="form-group">
                         <fieldset><label>Address <span className='require'>*</span></label>
                             <span className="add-address">
-                                <input type="text" className="control-form" placeholder="Province" name="province" value={AddHotel.province} onChange={handleChanges} /> &emsp;
-                                <input type="text" className="control-form" placeholder="City" name="city" value={AddHotel.city} onChange={handleChanges} />&emsp;
-                                <input type="text" className="control-form" placeholder="Town" name="town" value={AddHotel.town} onChange={handleChanges} />&emsp;
-                                <input type="number" className="control-form" placeholder="Code" name="code" value={AddHotel.code} onChange={handleChanges} />
+                                <input type="text" className="control-form" placeholder="Province" name="province" onChange={handleChanges} /> &emsp;
+                                <input type="text" className="control-form" placeholder="City" name="city" onChange={handleChanges} />&emsp;
+                                <input type="text" className="control-form" placeholder="Town" name="town" onChange={handleChanges} />&emsp;
+                                <input type="number" className="control-form" placeholder="Code" name="code" onChange={handleChanges} />
                             </span>
                         </fieldset>
                     </div>

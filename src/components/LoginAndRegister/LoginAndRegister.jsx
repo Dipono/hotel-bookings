@@ -25,9 +25,8 @@ function LoginAndRegister(props) {
     const refLog = useRef('login');
     const refReg = useRef('register');
     const refBtn = useRef('btn');
-    
-    useEffect(() => {
 
+    useEffect(() => {
     },[])
 
     function register() {

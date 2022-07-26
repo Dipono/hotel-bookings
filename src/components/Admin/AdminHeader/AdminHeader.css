@@ -1,6 +1,8 @@
 .admin-head{
     background-color: rgba(0, 0, 0, 0.3);
-    height: 12vh;
+    padding: 25px;
+    color: white;
+    text-align: center;
 }
 
 .admin-headnavBar{
@@ -35,4 +37,8 @@ ul{
     justify-content: flex-end;
     font-size: 1.1em;
     font-weight: 400;
+}
+
+.admin-logout{
+    margin-left: 10px;
 }

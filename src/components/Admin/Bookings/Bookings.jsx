@@ -34,7 +34,7 @@ function Bookings() {
                             <tbody>
                                 {Bookings.map((booking, xid) => (
                                     <tr key={xid}>
-                                        <td>{booking.cardExpDate}</td>
+                                        <td>{booking.guestName}</td>
                                         <td>{booking.checkIn}</td>
                                         <td>{booking.checkOut}</td>
                                         <td>{booking.totalPrice}</td>

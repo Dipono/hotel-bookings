@@ -15,27 +15,34 @@ function Header() {
 
 
 
-    const [username, setusername] = useState('Username')
+    const [username, setusername] = useState("Username")
     const usersCollectionRef = collection(db, "client")
 
     const HotelCollectionRef = collection(db, "hotel")
     let [HotelData, setHotelData] = useState([]);
     let [LogLabel, setLogLabel] = useState('login')
+    let [Role, setRole]= useState('client')
 
     useEffect(() => {
         let getId = localStorage.getItem('userId')
-        if (getId === null || getId === '') return;
+        setusername(localStorage.getItem('userEmail'))
+        if (username === null || username === "") return;
         const getUser = async () => {
             const data = await getDocs(usersCollectionRef);
             setusersInfo(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
             for (var user = 0; user < usersInfo.length; user++) {
                 if (usersInfo[user].id_ref === getId) {
                     setoneUser(usersInfo[user])
-                    setusername(usersInfo[user].name)
+                    setRole(usersInfo[user].role)
                     setLogLabel('Logout')
                 }
             }
         }
+        if(Role === 'admin') {
+            navigate('/admin_home')
+        }
+        console.log(username)
+        console.log(usersInfo)
 
         const getHotels = async () => {
             const hotelCollection = await getDocs(HotelCollectionRef);
@@ -65,7 +72,7 @@ function Header() {
     }
 
     function logout() {
-        if (username === 'Username') {
+        if (username === "Username") {
             return setButtonPopUp(true)
         }
         localStorage.removeItem('userId')
@@ -105,9 +112,3 @@ function Header() {
 }
 
 export default Header;
-
-/*
-className={isActive =>
-    "nav-link" + (!isActive ? " unselected" : "")
-  }
-*/
