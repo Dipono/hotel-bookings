@@ -4,7 +4,9 @@ import AdminHader from '../AdminHeader/AdminHeader';
 // import { db } from '../../config/firebase'
 // import { collection, getDocs } from 'firebase/firestore';
 import { useState,useEffect } from 'react';
-import bookings from '../../Data/Bookings'
+//import bookings from '../../Data/Bookings';
+import {collection,getDocs} from 'firebase/firestore';
+import {db} from '../../config/firebase';
 function AdminHome() {
 
     const [Bookings, setBookings]=useState([])
@@ -17,14 +19,14 @@ function AdminHome() {
 
     
 
-    // const bookingsRef = collection(db,'user_hotel')
+     const bookingsRef = collection(db,'user_hotel')
     useEffect(()=>{
-        setBookings(bookings)
+        //setBookings(bookings)
         
         const getBookings = async () => {
-            // const data = await getDocs(bookingsRef);
-            // setBookings(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-            
+             const data = await getDocs(bookingsRef);
+             setBookings(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+            console.log(Bookings)
             let booked = 0;
             var today = new Date();
             var date = today.getFullYear()+'-'+ ('0' + (today.getMonth()+1)).slice(-2)  +'-'+today.getDate();

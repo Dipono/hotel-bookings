@@ -1,6 +1,5 @@
 
 import { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom'
 import padlock from '../../assets/padlock.png';
 import view from '../../assets/view.png';
 import envelope from '../../assets/envelope.png';
@@ -12,7 +11,6 @@ import { useEffect } from 'react';
 import {AiFillCloseCircle} from 'react-icons/ai'
 
 function LoginAndRegister(props) {
-    const navigate = useNavigate()
 
     const userCollectionRef = collection(db, 'client');
 
@@ -27,8 +25,9 @@ function LoginAndRegister(props) {
     const refLog = useRef('login');
     const refReg = useRef('register');
     const refBtn = useRef('btn');
-
+    
     useEffect(() => {
+
     },[])
 
     function register() {

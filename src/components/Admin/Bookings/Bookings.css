@@ -1,0 +1,25 @@
+.admin_bookings{
+	width: 80%;
+	margin: auto;
+}
+
+.table-admin-bookings{
+    margin-top: 10px;
+}
+
+.table-admin-bookings td, .table-admin-bookings th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .table-admin-bookings tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .table-admin-bookings tr:hover {background-color: #ddd;}
+  
+  .table-admin-bookings th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }

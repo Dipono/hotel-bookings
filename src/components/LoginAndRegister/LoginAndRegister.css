@@ -150,6 +150,10 @@
 }
 
 
+#register:active{
+    margin-left: 0;
+}
+
  .login-btn{
     background-color: #b1476aaf;
     width: 320px;

@@ -114,13 +114,13 @@ function AddHotel() {
             || !AddHotel.code) {
             return alert('No field should be left blank')
         }
-        console.log(AddHotel)
+        const link = 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13228.578755684342!2d18.3795401!3d-34.0144968!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8e9e3a3e89d178e1!2sVida%20Nova%20Retreat!5e0!3m2!1sen!2sza!4v1656510121019!5m2!1sen!2sza';
 
         await addDoc(userCollectionRef, {
             hotel: hotelImage, name: AddHotel.name, description: AddHotel.description, price: AddHotel.price,
             duration: Duration, amenities: AddHotel.amenities, view: AddHotel.view, size: AddHotel.size, bedType: BedType, roomType: RoomType,
             categories: Category, descriptive: AddHotel.descriptive, capacity: AddHotel.capacity, gallary: UploadImages, province: AddHotel.province,
-            city: AddHotel.city, town: AddHotel.town, code: AddHotel.code
+            city: AddHotel.city, town: AddHotel.town, code: AddHotel.code, link:link
         })
         alert('submitted successfully')
         return navigate('/hotel')
